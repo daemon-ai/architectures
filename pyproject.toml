@@ -4,11 +4,33 @@ version = "0.1.0"
 description = ""
 authors = ["Jarrad Hope <jarrad@daemon.ai>"]
 readme = "README.md"
+packages = [
+    { include = "src" }
+]
 
 [tool.poetry.dependencies]
 python = "^3.12"
-
+click = "^8.1.7"
+levanter = { git = "git@github.com:stanford-crfm/levanter.git", develop = true, rev = "cb3638e7c8eff1624b534a06084b9ec5434c9912"}
+haliax = "^1.3"
+equinox = "^0.11.4"
+jaxtyping = "^0.2.33"
+optax = "^0.2.3"
+optuna = "^3.6.1"
+jax = { extras = ["cuda12"], version = "^0.4.31" }
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+pretrain = "src.training:pretrain"
+
+[[tool.poetry.source]]
+name = "PyPI"
+priority = "primary"
+
+[[tool.poetry.source]]
+name = "jax-cuda"
+url = "https://storage.googleapis.com/jax-releases/jax_cuda_releases.html"
+priority = "explicit"

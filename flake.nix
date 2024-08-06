@@ -9,13 +9,15 @@
       let
         pkgs = import nixpkgs {
           inherit system;
-          config = { allowUnfree = true; };
+          config = { 
+            allowUnfree = true;
+          };
         };
 
         devShellPackages = with pkgs; [
           gcc # for any python package that requires compilation
           poetry
-          zlib # for numpy
+          zlib
         ];
 
         development = true;
@@ -25,6 +27,7 @@
           buildInputs = devShellPackages;
           shellHook = if development then (with pkgs; ''
             export LD_LIBRARY_PATH="${stdenv.cc.cc.lib}/lib"
+            poetry run python -c "import jax; print(jax.devices())"
           '') else "";
         };
       }
