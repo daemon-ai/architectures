@@ -7,9 +7,11 @@
 
 ### General Idea
 
-Take Inspiration from Zamba's hybrid architecture, global attention, Mamba 2.
-Create Million Mixture-of-Depths-and-Experts (MoDE)
-As well as techniques from Super Tiny Language Models, especially the tokeniser
+Create a smaller, more expressive and grokked hybrid architecture with long context window.
+
+Take Inspiration from Zamba's hybrid architecture's global attention on Mamba 2.
+combined with Million Mixture-of-Depths-and-Experts (MoDE)
+And utilise various techniques from Super Tiny Language Models
 
 ### References
 
@@ -80,6 +82,7 @@ As well as techniques from Super Tiny Language Models, especially the tokeniser
 - [Transformers are SSMs: Generalized Models and Efficient Algorithms Through Structured State Space Duality](http://arxiv.org/abs/2405.21060)
 - [The Illusion of State in State-Space Models](http://arxiv.org/abs/2404.08819)
   - [Liquid Structural State-Space Models](http://arxiv.org/abs/2209.12951)
+  - We show how SSMs can be extended to close the gap in expressive power with RNNs, allowing them to express S5. Two simple extensions can bring about this increase in expressive power, assuming layer input dimension k > 1. First, adding a nonlinearity makes the SSM into an RNN, adding expressive power but degrading parallelism. On the other hand, allowing  ̄ Ai to be input-dependent makes the SSM more like a weighted finite automaton (WFA; Mohri, 2009), adding expressive power while remaining parallelizable.
 - [BlackMamba: Mixture of Experts for State-Space Models](http://arxiv.org/abs/2402.01771)
 - [Zamba: A Compact 7B SSM Hybrid Model](http://arxiv.org/abs/2405.16712)
 - [Jamba: A Hybrid Transformer-Mamba Language Model](http://arxiv.org/abs/2403.19887)
